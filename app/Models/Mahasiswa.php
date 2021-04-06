@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\Mahasiswa as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model; //Model Eloq
+use App\Models\Mahasiswa;
 
 class Mahasiswa extends Model
 {
@@ -23,4 +24,13 @@ class Mahasiswa extends Model
         'e_mail',
         'tgl_lahir'
     ];
+    /**
+     * Get the user that owns the Mahasiswa
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function kelas()
+    {
+        return $this->belongsTo(Kelas::class);
+    }
 }
