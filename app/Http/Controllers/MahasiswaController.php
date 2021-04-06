@@ -70,7 +70,6 @@ class MahasiswaController extends Controller
         $mahasiswa->no_handphone = $request->get('no_handphone');
         $mahasiswa->e_mail = $request->get('e_mail');
         $mahasiswa->tgl_lahir = $request->get('tgl_lahir');
-        $mahasiswa->save();
 
         $kelas = new Kelas;
         $kelas->id = $request->get('kelas_id');
