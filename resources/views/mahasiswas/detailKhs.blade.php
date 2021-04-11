@@ -9,9 +9,9 @@
                 <h2>KARTU HASIL STUDI (KHS)</h2>    
             </div>
             <div>
-                <h4><span class="text-bold">Nama:</span>Yukafi</h4>
-                <h4><span class="text-bold">Nim:</span>1941720040</h4>
-                <h4><span class="text-bold">Kelas:</span>TI 2A</h4>
+                <h4><span class="text-bold">Nama:</span> {{$mahasiswa->name}}</h4>
+                <h4><span class="text-bold">Nim:</span> {{$mahasiswa->nim}}</h4>
+                <h4><span class="text-bold">Kelas:</span> {{$mahasiswa->kelas->nama_kelas}}</h4>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="alert alert-success">
         <p>{{ $message }}</p>
     </div>
-@endif
+@endif 
 <table class="table table-bordered">
 <tr>
     <th>Matakuliah</th>
@@ -28,16 +28,14 @@
     <th>Nilai</th>
 </tr>
 
-    {{-- @foreach ($paginate as $Mahasiswa) --}}
-
-    <tr>
-        <td>PBO</td>
-        <td>3</td>
-        <td>4</td>
-        <td>A</td>
-    </tr>
-    
-    {{-- @endforeach --}}
+@foreach($mahasiswa->matakuliah as $matakuliah)
+<tr>
+    <td>{{$matakuliah->nama_matkul}}</td>
+    <td>{{$matakuliah->sks}}</td>
+    <td>{{$matakuliah->semester}}</td>
+    <td>{{$matakuliah->pivot->nilai}}</td>
+</tr>
+@endforeach
 
 </table>
 @endsection
